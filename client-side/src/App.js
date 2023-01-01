@@ -1,13 +1,25 @@
-import './App.css';
+import React from 'react';
+import NavComponent from './components/Nav';
+
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Hello, World!
+    <div>
+      <header>
+      {''}<NavComponent />{''}
       </header>
+      <main>
+        {/* <Routes>
+        <Route path='/' render={(routerProps) => {
+       
+        }} />
+        </Routes> */}
+      </main>
     </div>
   );
 }
+
+
 
 export default App;
