@@ -3,7 +3,7 @@ import { getPopular, getUpcoming, getNew, getDetails } from '../constants';
 
 export const ListContext = createContext();
 
-function ListContextProvider () {
+function ListContextProvider ({children}) {
     const game_id = window.location.pathname.split('/')[3];
     const [fetchPopular, setFetchPopular] = useState(false);
     const [fetchUpcoming, setFetchUpcoming] = useState(false);
@@ -65,6 +65,7 @@ function ListContextProvider () {
   
     return (
       <ListContext.Provider value={{fetchPopular, fetchUpcoming, fetchNew, fetchDetails, fetchSearch, popular, upcoming, newGames, details, search}}>
+        {children}
       </ListContext.Provider>
     )
   }

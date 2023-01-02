@@ -1,12 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 
-const CardComponent = ({ game }) => {
+const CardComponent = ({ games }) => {
 	return (
-		<div>
-			<h3>{game.name}</h3>
-			<img src={game.background_image} alt={game.name} />
-			<h4>Metacritic Rating: {game?.metacritic}</h4>
-		</div>
+		<>
+		{games.map((game) => {
+			const { id, background_image, name, released } = game;
+			return (
+				<Card key={id} className='card'>
+					<Card.Img 
+						variant='top'
+						src={background_image}
+					/>
+					<Card.Body>
+						<div>
+							<Link to={`/games/details/${id}`}>
+							<Card.Title>
+								<h4>{name}</h4>
+								<p>{released}</p>
+							</Card.Title>
+							</Link>
+						</div>
+					</Card.Body>
+				</Card>
+			)
+		})}
+		</>
 	)
 }
 
