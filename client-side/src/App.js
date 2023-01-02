@@ -1,7 +1,9 @@
 import React from 'react';
+import {Routes, Route} from 'react-router-dom';
 import NavComponent from './components/Nav';
 import Footer from './components/Footer';
-import {Routes, Route} from 'react-router-dom';
+import ListContextProvider from './contexts/ListContext';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -11,8 +13,14 @@ function App() {
       
       <main>
         <Routes> 
-          <Route path='/'>
-          </Route>
+          <Route 
+          path='/' 
+          element={
+            <ListContextProvider>
+              <Home />
+            </ListContextProvider>
+          }
+          />
         </Routes>
       </main>
 
