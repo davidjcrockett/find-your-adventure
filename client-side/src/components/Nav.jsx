@@ -8,10 +8,10 @@ const NavComponent = () => {
         <Navbar>
             <Navbar.Toggle aria-controls = 'basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
+                <Navbar.Brand as={Link} to='/'>Find Your Adventure</Navbar.Brand>
                 <Nav>
-                    <Nav.Link as={Link} to='/'>Homepage</Nav.Link>
-                    <Nav.Link as={Link} to='/search'>Search</Nav.Link>
-                    <Nav.Link as={Link} to='/about'>About</Nav.Link>
+                    <Nav.Link as={Link} to='/genres'>Genres</Nav.Link>
+                    <Nav.Link as={Link} to='/platforms'>Platforms</Nav.Link>
                     <Nav.Link as={Link} to='/bookmarks'>Bookmarks</Nav.Link>
                 </Nav>
             </Navbar.Collapse>

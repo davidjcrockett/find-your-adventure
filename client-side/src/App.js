@@ -1,21 +1,22 @@
 import React from 'react';
 import NavComponent from './components/Nav';
-
-import { Routes, Route } from 'react-router-dom';
+import Footer from './components/Footer';
+import {Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <header>
-      {''}<NavComponent />{''}
-      </header>
+    <div>        
+      
+      <NavComponent />
+      
       <main>
-        {/* <Routes>
-        <Route path='/' render={(routerProps) => {
-       
-        }} />
-        </Routes> */}
+        <Routes> 
+          <Route path='/'>
+          </Route>
+        </Routes>
       </main>
+
+      <Footer />
     </div>
   );
 }
