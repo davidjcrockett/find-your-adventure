@@ -2,7 +2,7 @@ import React from 'react';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
-function SearchBar(validate) {
+function SearchBar({validateQGame}) {
     return (
         <FloatingLabel
         controlId='floatingInput'
@@ -14,7 +14,7 @@ function SearchBar(validate) {
             placeholder='Search for a game'
             controlid='q_game'
             style={{width: '100%'}}
-            onKeyPress={e => validate(e)}
+            onKeyPress={e => validateQGame(e)}
             />
         </FloatingLabel>
     )

@@ -17,13 +17,13 @@ function Home () {
         upcoming, 
         newGames, 
         search, 
-        validate
+        validateQGame
     } = useContext(ListContext);
     return ( 
         <>
         <br />
         
-        <SearchBar validate={validate} />
+        <SearchBar validateQGame={validateQGame} />
         
         <Container>
 
