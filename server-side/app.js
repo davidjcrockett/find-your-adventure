@@ -1,61 +1,51 @@
-const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql2');
+const express = require("express");
+const app = express();
+const dotenv = require("dotenv");
+const mongoose = require('mongoose');
 
-const db = require('./config/db');
+const Schema = require("./models/Schema");
 
-require('dotenv').config();
-
-const app = express()
 const PORT = process.env.PORT || 3002;
 
-app.use(cors());
-app.use(express.json());
+dotenv.config();
 
-// Route to view all favorited video games
-app.get("/api/get", (req,res)=>{
-  db.query("SELECT * FROM favorites", (err,result) => {
-      if(err) {
-        console.log(err)
-      } res.send(result)
-  });
-});
-  
-// Route to view one video game
-app.get("/api/getFromId/:id", (req,res)=>{
-  const id = req.params.id;
-  
-  db.query("SELECT * FROM favorites WHERE id = ?", id, (err,result) => {
-    if(err) {
-      console.log(err)
-    } res.send(result)
-  });
+app.use("/static", express.static("public"));
+
+app.use(express.urlencoded({ extended : true }));
+
+app.set("view engine", "ejs");
+
+mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser : true , useUnifiedTopology: true,}, () => {
+    console.log("Connected to DB!");
+
+    app.listen(PORT, () => console.log(`Listening on channel ${PORT}`));
 });
 
-// Route for adding a favorite video game
-app.post('/api/create', (req,res) => {
-  const title = req.body.title;
-  const text = req.body.text;
+// // READ route to see bookmarked games
+// app.get('/', (req, res) => {
+//     Schema.find({}, (err, tasks) => {
+//         res.render('index.ejs', { todoTasks: tasks });
+//     });
+// });
 
-  db.query("INSERT INTO favorites (title, post_text) VALUES (?,?,?)",[title,text], (err,result)=>{
-    if(err) {
-      console.log(err)
-    } console.log(result)
-  });   
-})
+// // CREATE route to add bookmark to a game
+// app.post('/', async (req, res) => {
+//     const todoTask = new Schema({
+//         content: req.body.content
+//     });
+//     try {
+//         await todoTask.save();
+//         res.redirect("/");    
+//     } catch (err) {
+//         res.redirect("/");
+//     }
+// });
 
-// Route to deleting a game from favorites
-
-app.delete('/api/delete/:id',(req,res) => {
-  const id = req.params.id;
-  
-  db.query("DELETE FROM favorites WHERE id= ?", id, (err,result)=>{
-    if(err) {
-      console.log(err)
-    } 
-  }) 
-})
-
-app.listen(PORT, () => {
-  console.log(`Server is listening on Port ${PORT}`)
-});
+// //DELETE route to delete a bookmark to a game
+// app.route("/remove/:id").get((req, res) => {
+//     const id = req.params.id;
+//     Schema.findByIdAndRemove(id, err => {
+//         if (err) return res.send(500, err);
+//         res.redirect("/");
+//         });
+//     });
