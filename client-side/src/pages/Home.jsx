@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import SearchBar from '../components/Search';
-import CardComponent from '../components/Card';
-import ListOfGames from '../components/GameList';
+import SearchBar from '../components/general/Search';
+import CardComponent from '../components/game/Card';
+import ListOfGames from '../components//game/GameList';
 import { ListContext } from '../contexts/ListContext';
 import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
