@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import parse from 'html-react-parser';
 // import Image from 'react-bootstrap/Image';
 
 function DetailsComponent ({gameDetails}) {
@@ -45,7 +46,7 @@ function DetailsComponent ({gameDetails}) {
 
             <Row>
                 <Col className='g-4'>
-                    <h4>Description: {description}</h4>
+                    <h4>Description: {parse(description)}</h4>
                 </Col>
             </Row>
 

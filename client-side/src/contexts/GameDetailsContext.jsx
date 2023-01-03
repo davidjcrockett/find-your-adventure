@@ -3,7 +3,7 @@ import { getDetails } from './../constants';
 
 export const GameDetailsContext = createContext();
 
-const DetailsContextProvider = ({children}) => {
+function DetailsContextProvider ({children}) {
   const game_id = window.location.pathname.split('/')[3];
   const [fetchDetails, setFetchDetails] = useState(false);
   const [details, setDetails] = useState();

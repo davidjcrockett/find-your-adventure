@@ -29,7 +29,7 @@ function App() {
             />
 
             <Route 
-            path={`/games/details/:id`} 
+            path='/games/details/:id' 
             element={
               <DetailsContextProvider>
                 <DetailsPage />
@@ -43,7 +43,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
-
 
 export default App;

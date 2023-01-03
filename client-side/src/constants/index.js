@@ -51,7 +51,7 @@ export const getPopular = () => `${ rawg_url }${ popular_games }`;
 export const getUpcoming = () => `${ rawg_url }${ upcoming_games }`;
 export const getNew = () => `${ rawg_url }${ new_games }`;
 export const getSearch = game_name => `${ rawg_url }${ query_games }${ game_name }`;
-export const getDetails = game_id => `${ rawg_url }${ game_details }${ game_id }?key=${ process.env.REACT_APP_API_KEY }`;
+export const getDetails = game_id => `${ rawg_url }${ game_details }${ game_id }?key=${process.env.REACT_APP_API_KEY}`;
 
 
 //Future Additions

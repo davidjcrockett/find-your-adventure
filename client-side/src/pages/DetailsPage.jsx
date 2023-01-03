@@ -8,7 +8,7 @@ import Spinner from "react-bootstrap/Spinner";
 function DetailsPage () {
     const {
       fetchDetails,
-      gameDetails
+      gameDetails,
     } = useContext(GameDetailsContext);
     return (
       <>
