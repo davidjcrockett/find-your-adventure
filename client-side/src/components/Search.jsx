@@ -11,6 +11,7 @@ function SearchBar(validate) {
         >
             <Form.Control
             type='text'
+            placeholder='Search for a game'
             controlid='q_game'
             style={{width: '100%'}}
             onKeyPress={e => validate(e)}

@@ -4,8 +4,8 @@ import CardComponent from '../components/Card';
 import ListOfGames from '../components/GameList';
 import { ListContext } from '../contexts/ListContext';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 function Home () {
     const {
@@ -21,11 +21,12 @@ function Home () {
     } = useContext(ListContext);
     return ( 
         <>
+        <br />
+        
         <SearchBar validate={validate} />
         
         <Container>
-            <Row>
-                <Col>
+
                     {!fetchSearch ? (
                     fetchPopular &&
                     fetchUpcoming &&
@@ -36,15 +37,16 @@ function Home () {
                             newGames={newGames}
                         />
                     ) : (
-                    <p>Loading, please wait</p>
+                    <Spinner animation="border" size='xl' role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
                     )
                 ) : search.length ? (
                     <CardComponent games={search} />
                 ) : (
                     <p>No results found...</p>
                     )}
-                </Col>
-            </Row>
+
         </Container>
         </>
       );

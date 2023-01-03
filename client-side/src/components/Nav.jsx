@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function NavComponent() {
     return (
-        <Navbar>
+        <Navbar bg='dark' variant='dark'>
             <Navbar.Toggle aria-controls = 'basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
                 <Navbar.Brand as={Link} to='/'>Find Your Adventure</Navbar.Brand>

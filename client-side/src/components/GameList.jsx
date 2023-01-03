@@ -6,29 +6,30 @@ import Col from 'react-bootstrap/Col';
 
 const ListOfGames = ({ popular, upcoming, newGames }) => (
   <>
-  <Container>
+  <Container fluid>
 
     <Row>
-      <h3>Popular Games</h3>
-        <Col>
-          <CardComponent games={popular} listofgames />
+
+        <Col className='g-4'>
+            <h3>Popular Games</h3>
+                <CardComponent games={popular} listofgames />
         </Col>
+
+
+        <Col className='g-4'>
+            <h3>Upcoming Games</h3>
+                <CardComponent games={upcoming} listofgames />
+        </Col>
+
+
+        <Col className='g-4'>
+            <h3>New Games</h3>
+                <CardComponent games={newGames} listofgames />
+        </Col>
+
     </Row>
 
-    <Row>
-      <h3>Upcoming Games</h3>
-        <Col>
-          <CardComponent games={upcoming} listofgames />
-        </Col>
-    </Row>
-
-    <Row>
-      <h3>New Games</h3>
-        <Col>
-          <CardComponent games={newGames} listofgames />
-        </Col>
-    </Row>
-    </Container>
+  </Container>
   </>
 );
 

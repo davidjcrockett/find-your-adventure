@@ -8,18 +8,26 @@ const CardComponent = ({ games }) => {
 		{games.map((game) => {
 			const { id, background_image, name, released } = game;
 			return (
-				<Card key={id} className='card'>
+				<Card
+				key={id}
+				className='card mb-3'
+				border='dark'
+				style={{ width: '16rem', height: '19rem' }}
+				>
 					<Card.Img 
-						variant='top'
+						variant='bottom'
 						src={background_image}
+						style={{width: '16rem'}}
 					/>
 					<Card.Body>
 						<div>
 							<Link to={`/games/details/${id}`}>
 							<Card.Title>
-								<h4>{name}</h4>
-								<p>{released}</p>
+								<h4 className='card-title'>{name}</h4>
 							</Card.Title>
+							<Card.Footer>
+							<small className='text-muted'> Released: {released}</small>
+							</Card.Footer>
 							</Link>
 						</div>
 					</Card.Body>
