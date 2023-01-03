@@ -10,19 +10,19 @@ const SearchList = ({ popular, upcoming, newGames }) => (
 
     <Row>
 
-        <Col className='g-4'>
+        <Col className='g-4' xs={12} md={6} lg={4}>
             <h3>Popular Games</h3>
                 <CardComponent games={popular} listofgames />
         </Col>
 
 
-        <Col className='g-4'>
+        <Col className='g-4' xs={12} md={6} lg={4}>
             <h3>Upcoming Games</h3>
                 <CardComponent games={upcoming} listofgames />
         </Col>
 
 
-        <Col className='g-4'>
+        <Col className='g-4' xs={12} md={6} lg={4}>
             <h3>New Games</h3>
                 <CardComponent games={newGames} listofgames />
         </Col>

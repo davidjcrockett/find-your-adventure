@@ -8,13 +8,12 @@ function NavComponent() {
         <Navbar bg='dark' variant='dark'>
             <Navbar.Brand as={Link} to='/'>Find Your Adventure</Navbar.Brand>
             <Navbar.Toggle aria-controls = 'basic-navbar-nav' />
-            <Navbar.Collapse className="justify-content-end">
+
                 <Nav>
-                    <Nav.Link as={Link} to='/genres'>Genres</Nav.Link>
-                    <Nav.Link as={Link} to='/platforms'>Platforms</Nav.Link>
+                    <Nav.Link as={Link} to='/'>Home</Nav.Link>
                     <Nav.Link as={Link} to='/bookmarks'>Bookmarks</Nav.Link>
                 </Nav>
-            </Navbar.Collapse>
+
         </Navbar>
     )
 }

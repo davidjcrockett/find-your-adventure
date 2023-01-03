@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
 const CardComponent = ({ games }) => {
+
+	const styles = {
+		card: {
+		  borderRadius: 10,
+		  padding: '1rem 1rem 1rem 0rem'
+		},
+		cardImage: {
+		  objectFit: 'cover',
+		  margin: 'auto',
+		  height: '20vh'
+		}
+	  }
+
 	return (
 		<>
 		{games.map((game) => {
@@ -10,24 +23,19 @@ const CardComponent = ({ games }) => {
 			return (
 				<Card
 				key={id}
-				className='card mb-3'
+				className='card mb-3 text-center'
 				border='dark'
-				style={{ width: '16rem', height: '19rem' }}
+				style={styles.card}
 				>
-					<Card.Img 
-						variant='bottom'
-						src={background_image}
-						style={{width: '16rem'}}
-					/>
+					<Card.Img src={background_image} style={styles.cardImage}/>
 					<Card.Body>
 						<div>
 							<Link to={`/games/details/${id}`}>
 							<Card.Title>
 								<h4 className='card-title'>{name}</h4>
 							</Card.Title>
-							<Card.Footer>
-							<small className='text-muted'> Released: {released}</small>
-							</Card.Footer>
+							<Card.Subtitle className='mb-2 text-muted'> Released: {released}
+							</Card.Subtitle>
 							</Link>
 						</div>
 					</Card.Body>
