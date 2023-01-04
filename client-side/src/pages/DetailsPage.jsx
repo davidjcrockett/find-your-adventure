@@ -15,11 +15,11 @@ function DetailsPage () {
       fetch(getDetails(game_id))
         .then(res => res.text())
         .then(text => {
-          console.log(text);
+          // console.log(text);
           return JSON.parse(text);
         })
         .then (parsedResponse => {
-          console.log(parsedResponse);
+          // console.log(parsedResponse);
             setFetchDetails(true);
             setGameData(parsedResponse);
         })

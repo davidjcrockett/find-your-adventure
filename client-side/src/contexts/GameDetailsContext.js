@@ -13,11 +13,11 @@ const DetailsContextProvider = ({ children }) => {
     const getDetailsConst = (game_id) => {
       fetch(getDetails(game_id))
         .then(res => {
-          console.log(res);
+          // console.log(res);
           return res.text();
         })
         .then(text => {
-          console.log(text);
+          // console.log(text);
           return JSON.parse(text);
         })
         .then(({ data }) => {
