@@ -1,19 +1,25 @@
 const express = require("express");
-const app = express();
 const dotenv = require("dotenv");
+const cors = require('cors');
+const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 
+const app = express();
 const Schema = require("./models/Schema");
 
 const PORT = process.env.PORT || 3002;
 
 dotenv.config();
 
-app.use("/static", express.static("public"));
+var corsOptions = { origin: "http://localhost:3001"};
 
-app.use(express.urlencoded({ extended : true }));
+app.use(cors(corsOptions));
 
-app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/", (req, res) => {
+  res.json({ message: "Hello, World!" });
+});
 
 mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser : true , useUnifiedTopology: true,}, () => {
     console.log("Connected to DB!");
