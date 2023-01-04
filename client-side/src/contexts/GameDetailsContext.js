@@ -1,12 +1,11 @@
 import { createContext, useState, useEffect } from 'react';
-import { getDetails } from './../constants';
+
+const getDetails = game_id => `https://api.rawg.io/api/games/${game_id}?key=${process.env.REACT_APP_API_KEY}`;
 
 export const GameDetailsContext = createContext();
 
 const DetailsContextProvider = ({ children }) => {
-  // id
   const game_id = window.location.pathname.split('/')[3];
-
   const [fetchDetails, setFetchDetails] = useState(false);
   const [gameData, setGameData] = useState();
 
@@ -29,8 +28,6 @@ const DetailsContextProvider = ({ children }) => {
           console.error(error); // log the error message
         });
     };
-    
-
     getDetailsConst(game_id);
   }, [game_id]);
 
@@ -39,7 +36,8 @@ const DetailsContextProvider = ({ children }) => {
       {children}
     </GameDetailsContext.Provider>
   );
-  
+
 };
+
 
 export default DetailsContextProvider;

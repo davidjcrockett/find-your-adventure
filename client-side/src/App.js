@@ -24,13 +24,14 @@ function App() {
             element={
               <ListContextProvider>
                 <Home />
-              </ListContextProvider>
-            }
-            />
+              </ListContextProvider> }/>
 
-<Route path="/details/:id" element={<DetailsContextProvider>
-    <DetailsPage />
-  </DetailsContextProvider>} />
+            <Route 
+            path="/details/:id" 
+            element={
+              <DetailsContextProvider>
+                <DetailsPage />
+              </DetailsContextProvider>} />
 
 
           </Routes>

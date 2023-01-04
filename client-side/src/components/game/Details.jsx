@@ -2,11 +2,10 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import parse from 'html-react-parser';
 
 function DetailsComponent ({ gameDetails }) {
-    const { title, release_date, developers, publishers, background_image } = gameDetails;
-  
-  console.log(gameDetails);
+    const { name, description, released, background_image } = gameDetails;
 
     return (
         <>
@@ -14,12 +13,10 @@ function DetailsComponent ({ gameDetails }) {
 
             <Row>
                 <Col className='g-4'>
-                    <h1>{title}</h1>
-                    <p>Released on: {release_date}</p>
-                    <p>Developed by: {developers.join(', ')}</p>
-                    <p>Published by: {publishers.join(', ')}</p>
-                    <img src={background_image} alt={`${title} background`} />
-
+                    <img src={background_image} alt={`${name} background`} />
+                    <h1>{name}</h1>
+                    <p>{parse(description)}</p>
+                    <p>Released on: {released}</p>
                 </Col>
             </Row>
 
