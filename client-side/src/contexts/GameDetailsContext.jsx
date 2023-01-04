@@ -1,30 +1,45 @@
-import React, {createContext, useState, useEffect} from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { getDetails } from './../constants';
 
 export const GameDetailsContext = createContext();
 
-function DetailsContextProvider ({children}) {
+const DetailsContextProvider = ({ children }) => {
+  // id
   const game_id = window.location.pathname.split('/')[3];
+
   const [fetchDetails, setFetchDetails] = useState(false);
-  const [details, setDetails] = useState();
+  const [gameData, setGameData] = useState();
 
-  useEffect(() => getDetailsConst(game_id), [game_id]);
+  useEffect(() => {
+    const getDetailsConst = (game_id) => {
+      fetch(getDetails(game_id))
+        .then(res => {
+          console.log(res);
+          return res.text();
+        })
+        .then(text => {
+          console.log(text);
+          return JSON.parse(text);
+        })
+        .then(({ data }) => {
+          setFetchDetails(true);
+          setGameData(data);
+        })
+        .catch(error => {
+          console.error(error); // log the error message
+        });
+    };
+    
 
-  const getDetailsConst = (game_id) => {
-    fetch(getDetails(game_id))
-      .then(res => res.json())
-      .then(data => {
-        setFetchDetails(true);
-        setDetails(data)
-      })
-      .catch(error => console.log(error));
-  }
+    getDetailsConst(game_id);
+  }, [game_id]);
 
   return (
-    <GameDetailsContext.Provider value={{ fetchDetails, details }}>
+    <GameDetailsContext.Provider value={{ fetchDetails, setFetchDetails, gameData, setGameData }}>
       {children}
     </GameDetailsContext.Provider>
-  )
-}
+  );
+  
+};
 
 export default DetailsContextProvider;

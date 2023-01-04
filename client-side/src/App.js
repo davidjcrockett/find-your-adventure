@@ -28,14 +28,10 @@ function App() {
             }
             />
 
-            <Route 
-            path='/games/details/:id' 
-            element={
-              <DetailsContextProvider>
-                <DetailsPage />
-              </DetailsContextProvider>
-            }
-            />
+<Route path="/details/:id" element={<DetailsContextProvider>
+    <DetailsPage />
+  </DetailsContextProvider>} />
+
 
           </Routes>
         </Container>

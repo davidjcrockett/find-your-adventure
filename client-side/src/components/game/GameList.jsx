@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const ListOfGames = ({ popular, upcoming, newGames }) => (
+const HomeGamesComponent = ({ popular, upcoming, newGames }) => (
   <>
   <Container fluid>
 
@@ -12,19 +12,19 @@ const ListOfGames = ({ popular, upcoming, newGames }) => (
 
         <Col className='g-4'>
             <h3>Popular Games</h3>
-                <CardComponent games={popular} listofgames />
+                <CardComponent games={popular}/>
         </Col>
 
 
         <Col className='g-4'>
             <h3>Upcoming Games</h3>
-                <CardComponent games={upcoming} listofgames />
+                <CardComponent games={upcoming}/>
         </Col>
 
 
         <Col className='g-4'>
             <h3>New Games</h3>
-                <CardComponent games={newGames} listofgames />
+                <CardComponent games={newGames}/>
         </Col>
 
     </Row>
@@ -33,4 +33,4 @@ const ListOfGames = ({ popular, upcoming, newGames }) => (
   </>
 );
 
-export default ListOfGames;
+export default HomeGamesComponent;

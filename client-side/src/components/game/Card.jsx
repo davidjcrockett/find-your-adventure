@@ -30,7 +30,7 @@ const CardComponent = ({ games }) => {
 					<Card.Img src={background_image} style={styles.cardImage}/>
 					<Card.Body>
 						<div>
-							<Link to={`/games/details/${id}`}>
+							<Link to={`/details/${id}`}>
 							<Card.Title>
 								<h4 className='card-title'>{name}</h4>
 							</Card.Title>
