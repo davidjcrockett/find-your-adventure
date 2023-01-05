@@ -4,13 +4,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import parse from 'html-react-parser';
 import Image from "react-bootstrap/Image";
+import Button from 'react-bootstrap/Button';
 
 function DetailsComponent ({ gameDetails }) {
     const { name, description, released, background_image, platforms, publishers, genres } = gameDetails;
 
     const styles = {
         image: {
-            padding: '2rem 0rem 0rem 0rem'
+            padding: '2rem 0rem 2rem 0rem'
+        },
+        button: {
+            padding: '1rem 4rem 1rem 4rem'
         }
     }
 
@@ -48,6 +52,7 @@ function DetailsComponent ({ gameDetails }) {
 
                 <Col>
                 <Image className="img-fluid" src={background_image} style={styles.image} alt={`${name} background`} />
+                <Button style={styles.button} variant='dark'>Add to Bookmarks</Button>
                 </Col>
             </Row> 
 
