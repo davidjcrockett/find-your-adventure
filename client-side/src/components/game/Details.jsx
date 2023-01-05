@@ -35,25 +35,21 @@ function DetailsComponent ({ gameDetails }) {
                         ))}
                     </ul>
 
-                    
-                </Col>
-
-                <Col>
-                <Image className="img-fluid" src={background_image} style={styles.image} alt={`${name} background`} />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col>
-                <h3>Platforms</h3>
+                    <h3>Platforms</h3>
 
                     <ul>
                         {platforms.map((platform) => (
                             <li key={platform.platform.id}>{platform.platform.name}</li>
                         ))}
                     </ul>
+
+                    
                 </Col>
-            </Row>   
+
+                <Col>
+                <Image className="img-fluid" src={background_image} style={styles.image} alt={`${name} background`} />
+                </Col>
+            </Row> 
 
             <Row>
                 <Col>
